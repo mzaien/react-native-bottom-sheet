@@ -1,8 +1,8 @@
+import BottomSheet, { useBottomSheetSpringConfigs } from '@gorhom/bottom-sheet';
 import React, { useCallback, memo, useRef, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import BottomSheet, { useBottomSheetSpringConfigs } from '@gorhom/bottom-sheet';
-import { ContactList } from '../../components/contactList';
 import { Button } from '../../components/button';
+import { ContactList } from '../../components/contactList';
 
 interface ExampleScreenProps {
   title: string;
@@ -107,6 +107,8 @@ const createExampleScreen = ({ type, count = 25 }: ExampleScreenProps) =>
           enableDynamicSizing={false}
           onChange={handleSheetChange}
           onAnimate={handleSheetAnimate}
+          // maestro can read sheet elemnets with the sheet it not accessible only
+          accessible={false}
         >
           <ContactList key={`${type}.list`} type={type} count={count} />
         </BottomSheet>

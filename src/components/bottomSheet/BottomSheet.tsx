@@ -1578,6 +1578,16 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
             },
           });
         }
+        if (__DEV__) {
+          runOnJS(print)({
+            component: BottomSheet.name,
+            method: '_providedAccessible|DEFAULT_ACCESSIBLE',
+            params: {
+              _providedAccessible,
+              DEFAULT_ACCESSIBLE,
+            },
+          });
+        }
 
         evaluatePosition(ANIMATION_SOURCE.SNAP_POINT_CHANGE);
       },
